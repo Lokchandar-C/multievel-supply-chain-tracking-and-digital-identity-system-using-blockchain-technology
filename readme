@@ -17,4 +17,4 @@ Plane transportation from Station A to Station B
 Drone transportation from Station B to Station C
 Car transportation from Station C to Station D
 
-blockchain platform planned for this is Hyperledger Fabric for its high throughput, confidentiality, and scalability.
+blockchain platform planned for this is Ethereum and ganache to emulate the Ethereum blockchain.
