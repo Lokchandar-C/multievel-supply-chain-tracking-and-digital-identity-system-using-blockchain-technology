@@ -1,0 +1,20 @@
+Decentralized logistics and blockchain technology can work together to create a more efficient and secure supply chain system. 
+By using blockchain to track changes in the type of transport, businesses can reduce the risk of errors and increase transparency.
+
+Since blockchain transactions are immutable and transparent, all parties involved in the supply chain can have confidence in the 
+accuracy of the data. This can help reduce disputes and delays caused by errors or discrepancies in the supply chain.
+
+steps that can be taken to implement blockchain technology into a three-level transport system:
+*Define the supply chain process 
+*Choose a blockchain platform
+*Develop a smart contract: tion, and timestamp
+*Implement a supply chain tracking system
+*Establish a digital identity system
+*Integrate the digital identity system 
+
+the supply chain process is planned in three steps :
+Plane transportation from Station A to Station B
+Drone transportation from Station B to Station C
+Car transportation from Station C to Station D
+
+blockchain platform planned for this is Hyperledger Fabric for its high throughput, confidentiality, and scalability.
