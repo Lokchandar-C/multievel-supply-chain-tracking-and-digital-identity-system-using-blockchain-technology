@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transport Contract Interaction</title>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load', async () => {
+            // Connect to the local Ethereum node
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                await window.ethereum.enable();
+            } else {
+                alert("Please install MetaMask to use this dApp!");
+            }
+
+            // Set the contract address and ABI
+            const contractAddress = 'CONTRACT_ADDRESS';
+            const abi = ABI;
+
+            // Load the contract object
+            const transportContract = new web3.eth.Contract(abi, contractAddress);
+
+            // Example function to create a transport
+            async function createTransport() {
+                const transportId = web3.utils.asciiToHex('TRANSPORT_ID');
+                const product = 'PRODUCT_NAME';
+                const origin = 'ORIGIN_LOCATION';
+                const destination = 'DESTINATION_LOCATION';
+                await transportContract.methods.createTransport(transportId, product, origin, destination).send({ from: web3.eth.accounts[0], gas: 3000000 });
+            }
+
+            // Example function to add transportation details
+            async function addTransportation() {
+                const transportId = web3.utils.asciiToHex('TRANSPORT_ID');
+                const mode = 'TRANSPORT_MODE';
+                const identity = 'TRANSPORT_IDENTITY';
+                const timestamp = Math.floor(Date.now() / 1000);
+                await transportContract.methods.addTransportation(transportId, mode, identity, timestamp).send({ from: web3.eth.accounts[0], gas: 3000000 });
+            }
+
+            // Example function to get transport details
+            async function getTransport() {
+                const transportId = web3.utils.asciiToHex('TRANSPORT_ID');
+                const transportDetails = await transportContract.methods.getTransport(transportId).call();
+                console.log('Product:', transportDetails[0]);
+                console.log('Origin:', transportDetails[1]);
+                console.log('Destination:', transportDetails[2]);
+                console.log('Timestamps:', transportDetails[3]);
+                console.log('Identities:', transportDetails[4]);
+                console.log('Modes:', transportDetails[5]);
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Transport Contract Interaction</h1>
+    <button onclick="createTransport()">Create Transport</button>
+    <button onclick="addTransportation()">Add Transportation Details</button>
+    <button onclick="getTransport()">Get Transport Details</button>
+</body>
+</html>
